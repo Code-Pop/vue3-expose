@@ -2,7 +2,7 @@
 import { ref, h } from 'vue'
 
 export default {
-  setup () {
+  setup (props, context) {
     const counter = ref(0)
 
     const interval = setInterval(() => {
@@ -17,7 +17,7 @@ export default {
       clearInterval(interval)
     }
 
-    // context.expose({ reset })
+    context.expose({ reset })
 
     return () => h('div', [
       h('p', `Counter: ${counter.value}`),
