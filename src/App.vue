@@ -1,26 +1,25 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <MyCounter ref="counter" />
+
+  <button @click="reset">Reset from parent</button>
+  <button @click="terminate">Terminate from parent</button>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MyCounter from '@/components/MyCounter.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    MyCounter
+  },
+  methods: {
+    reset () {
+      this.$refs.counter.reset()
+    },
+    terminate () {
+      this.$refs.counter.terminate()
+    }
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
